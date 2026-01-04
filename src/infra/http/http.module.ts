@@ -1,12 +1,11 @@
 import { Module } from '@nestjs/common'
 import { CreateAccountController } from './controllers/create-account.controller'
-import { PrismaService } from '../prisma/prisma.service'
 import { AuthenticateController } from './controllers/authenticate.controller'
-import { AuthModule } from '../auth/auth.module'
+import { DatabaseModule } from '@faker-js/faker'
 
 @Module({
-  imports: [AuthModule],
+  imports: [DatabaseModule],
   controllers: [CreateAccountController, AuthenticateController],
-  providers: [PrismaService],
+  providers: [],
 })
 export class HttpModule { }

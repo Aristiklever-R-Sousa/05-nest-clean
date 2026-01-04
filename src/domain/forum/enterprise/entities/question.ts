@@ -8,14 +8,14 @@ import { QuestionBestAnswerChoosenEvent } from '../events/question-best-answer-c
 
 export interface QuestionProps {
   authorId: UniqueEntityId
-  bestAnswerId?: UniqueEntityId
+  bestAnswerId?: UniqueEntityId | null
   title: string
   content: string
   slug: Slug
   attachments: QuestionAttachmentList
 
   createdAt: Date
-  updatedAt?: Date
+  updatedAt?: Date | null
 }
 
 export class Question extends AggregateRoot<QuestionProps> {
