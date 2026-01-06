@@ -22,6 +22,13 @@ export class Student extends Entity<StudentProps> {
     return this.props.password
   }
 
+  get createdAt() {
+    return this.props.createdAt
+  }
+  get updatedAt() {
+    return this.props.updatedAt
+  }
+
   static create(props: Optional<StudentProps, 'createdAt'>, id?: UniqueEntityId) {
     const student = new Student({
       ...props,
