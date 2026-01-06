@@ -21,3 +21,15 @@ Content-Type: application/json
     "email": "john.doe@example.com",
     "password": "securePassword123"
 }
+
+###
+
+# @name create_question
+POST {{baseUrl}}/questions
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+    "title": "Nova pergunta 3",
+    "content": "Conteúdo da pergunta"
+}
