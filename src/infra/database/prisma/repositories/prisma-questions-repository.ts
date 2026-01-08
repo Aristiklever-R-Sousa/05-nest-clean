@@ -20,6 +20,7 @@ export class PrismaQuestionsRepository implements QuestionsRepository {
 
         return PrismaQuestionMapper.toDomain(question)
     }
+
     async findBySlug(slug: string): Promise<Question | null> {
         const question = await this.prisma.question.findUnique({
             where: { slug }
@@ -49,6 +50,7 @@ export class PrismaQuestionsRepository implements QuestionsRepository {
             data,
         })
     }
+
     async save(question: Question): Promise<void> {
         const data = PrismaQuestionMapper.toPrisma(question)
 
@@ -57,6 +59,7 @@ export class PrismaQuestionsRepository implements QuestionsRepository {
             data,
         })
     }
+
     async delete(question: Question): Promise<void> {
         const data = PrismaQuestionMapper.toPrisma(question)
 
