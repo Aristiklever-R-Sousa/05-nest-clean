@@ -16,7 +16,8 @@ const bodyValidationPipe = new ZodValidationPipe(createQuestionBodySchema)
 type CreateQuestionBodySchema = z.infer<typeof createQuestionBodySchema>
 
 @Controller('/questions')
-@UseGuards(JwtAuthGuard) export class CreateQuestionController {
+@UseGuards(JwtAuthGuard)
+export class CreateQuestionController {
     constructor(private createQuestion: CreateQuestionUseCase) { }
 
     @Post()
