@@ -1,6 +1,7 @@
-import { execSync } from 'child_process'
 import 'dotenv/config'
-import { PrismaClient } from 'generated/prisma'
+
+import { execSync } from 'node:child_process'
+import { PrismaClient } from 'prisma/generated/client'
 
 const prisma = new PrismaClient()
 
