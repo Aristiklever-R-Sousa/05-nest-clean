@@ -25,6 +25,9 @@ import { FetchQuestionAnswersController } from './controllers/fetch-question-ans
 import { FetchQuestionAnswersUseCase } from '@/domain/forum/application/use-cases/fetch-question-answers'
 import { ChooseQuestionBestAnswerUseCase } from '@/domain/forum/application/use-cases/choose-question-best-answer'
 import { ChooseQuestionBestAnswerController } from './controllers/choose-question-best-answer.controller'
+import { CommentOnQuestionController } from './controllers/comment-on-question.controller'
+import { CommentOnQuestionUseCase } from '@/domain/forum/application/use-cases/comment-on-question'
+import { CommentOnAnswerUseCase } from '@/domain/forum/application/use-cases/comment-on-answer'
 
 @Module({
   imports: [DatabaseModule, CryptographyModule],
@@ -32,16 +35,16 @@ import { ChooseQuestionBestAnswerController } from './controllers/choose-questio
     CreateAccountController,
     AuthenticateController,
     CreateQuestionController, FetchRecentQuestionsController, GetQuestionBySlugController,
-    EditQuestionController, DeleteQuestionController,
+    EditQuestionController, DeleteQuestionController, CommentOnQuestionController,
     AnswerQuestionController, EditAnswerController, DeleteAnswerController,
     FetchQuestionAnswersController, ChooseQuestionBestAnswerController,
   ],
   providers: [
     RegisterStudentUseCase, AuthenticateStudentUseCase,
     CreateQuestionUseCase, FetchRecentQuestionsUseCase, GetQuestionBySlugUseCase,
-    EditQuestionUseCase, DeleteQuestionUseCase,
+    EditQuestionUseCase, DeleteQuestionUseCase, CommentOnQuestionUseCase,
     AnswerQuestionUseCase, EditAnswerUseCase, DeleteAnswerUseCase,
-    FetchQuestionAnswersUseCase, ChooseQuestionBestAnswerUseCase,
+    FetchQuestionAnswersUseCase, ChooseQuestionBestAnswerUseCase, CommentOnAnswerUseCase,
   ],
 })
 export class HttpModule { }
