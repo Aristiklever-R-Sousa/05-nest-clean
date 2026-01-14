@@ -19,24 +19,23 @@ import { AnswerQuestionController } from './controllers/answer-question.controll
 import { AnswerQuestionUseCase } from '@/domain/forum/application/use-cases/answer-question'
 import { EditAnswerController } from './controllers/edit-answer.controller'
 import { EditAnswerUseCase } from '@/domain/forum/application/use-cases/edit-answer'
+import { DeleteAnswerUseCase } from '@/domain/forum/application/use-cases/delete-answer'
+import { DeleteAnswerController } from './controllers/delete-answer.controller'
+import { FetchQuestionAnswersController } from './controllers/fetch-question-answers.controller'
+import { FetchQuestionAnswersUseCase } from '@/domain/forum/application/use-cases/fetch-question-answers'
 
 @Module({
   imports: [DatabaseModule, CryptographyModule],
   controllers: [
     CreateAccountController,
     AuthenticateController,
-    CreateQuestionController,
-    FetchRecentQuestionsController,
-    GetQuestionBySlugController,
-    EditQuestionController,
-    DeleteQuestionController,
-    AnswerQuestionController,
-    EditAnswerController,
+    CreateQuestionController, FetchRecentQuestionsController, GetQuestionBySlugController, EditQuestionController, DeleteQuestionController,
+    AnswerQuestionController, EditAnswerController, DeleteAnswerController, FetchQuestionAnswersController
   ],
   providers: [
-    RegisterStudentUseCase, AuthenticateStudentUseCase, CreateQuestionUseCase, FetchRecentQuestionsUseCase,
-    GetQuestionBySlugUseCase, EditQuestionUseCase, DeleteQuestionUseCase,
-    AnswerQuestionUseCase, EditAnswerUseCase,
+    RegisterStudentUseCase, AuthenticateStudentUseCase,
+    CreateQuestionUseCase, FetchRecentQuestionsUseCase, GetQuestionBySlugUseCase, EditQuestionUseCase, DeleteQuestionUseCase,
+    AnswerQuestionUseCase, EditAnswerUseCase, DeleteAnswerUseCase, FetchQuestionAnswersUseCase,
   ],
 })
 export class HttpModule { }
