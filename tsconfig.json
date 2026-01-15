@@ -11,10 +11,13 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     },
     "types": [
-      "vitest/globals"
+      "vitest/globals",
+      "multer"
     ],
     // "ignoreDeprecations": "6.0",
     "incremental": true,

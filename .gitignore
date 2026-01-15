@@ -61,3 +61,5 @@ data
 **/generated
 
 *.pem
+
+*.(jpg|jpeg)
