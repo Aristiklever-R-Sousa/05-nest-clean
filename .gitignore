@@ -62,4 +62,6 @@ data
 
 *.pem
 
-*.(jpg|jpeg)
+**/*.jpg
+**/*.png
+**/*.jpeg
