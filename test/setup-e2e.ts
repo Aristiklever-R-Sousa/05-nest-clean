@@ -1,7 +1,10 @@
-import 'dotenv/config'
+import { config } from 'dotenv'
 
 import { execSync } from 'node:child_process'
 import { PrismaClient } from 'prisma/generated/client'
+
+config({ path: '.env', override: true })
+config({ path: '.env.test', override: true })
 
 const prisma = new PrismaClient()
 

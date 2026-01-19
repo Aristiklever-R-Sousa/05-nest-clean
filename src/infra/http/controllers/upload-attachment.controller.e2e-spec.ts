@@ -36,5 +36,8 @@ describe('Upload Attachment (e2e)', () => {
             .attach('file', './test/e2e/sample-upload.jpg')
 
         expect(response.statusCode).toBe(201)
+        expect(response.body).toEqual({
+            attachment_id: expect.any(String)
+        })
     })
 })
