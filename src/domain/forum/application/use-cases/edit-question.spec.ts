@@ -114,13 +114,13 @@ describe('Edit Question', () => {
 
     const result = await sut.execute({
       questionId: newQuestion.id.toValue(),
-      authorId: 'author-2',
+      authorId: 'author-1',
       title: 'Pergunta teste',
       content: 'Conteúdo teste',
       attachmentsIds: ['1', '3'],
     })
 
-    expect(result.isLeft()).toBe(true)
+    expect(result.isRight()).toBe(true)
     expect(inMemoryQuestionAttachmentsRepository.items).toHaveLength(2)
     expect(inMemoryQuestionAttachmentsRepository.items).toEqual(
       expect.arrayContaining([

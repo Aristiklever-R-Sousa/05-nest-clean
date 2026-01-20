@@ -8,6 +8,7 @@ import { AnswerQuestionUseCase } from "@/domain/forum/application/use-cases/answ
 
 const answerQuestionBodySchema = z.object({
     content: z.string(),
+    attachments: z.array(z.uuid()),
 })
 
 const bodyValidationPipe = new ZodValidationPipe(answerQuestionBodySchema)
@@ -25,7 +26,7 @@ export class AnswerQuestionController {
         @CurrentUser() user: UserPayload,
         @Param('questionId') questionId: string,
     ) {
-        const { content } = body
+        const { content, attachments } = body
 
         const userId = user.sub
 
@@ -33,7 +34,7 @@ export class AnswerQuestionController {
             content,
             questionId,
             authorId: userId,
-            attachmentsIds: []
+            attachmentsIds: attachments
         })
 
         if (result.isLeft()) {

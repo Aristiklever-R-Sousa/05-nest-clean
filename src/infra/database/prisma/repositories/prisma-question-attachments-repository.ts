@@ -26,7 +26,7 @@ export class PrismaQuestionAttachmentsRepository implements QuestionAttachmentsR
 
         await this.prisma.attachment.deleteMany({
             where: {
-                id: { in: attachments.map(item => item.id.toString()) }
+                id: { in: attachments.map(item => item.attachmentId.toString()) }
             }
         })
     }
