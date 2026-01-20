@@ -37,4 +37,26 @@ describe('Create Question', () => {
       expect.objectContaining({ attachmentId: new UniqueEntityId('2') }),
     ])
   })
+
+  it('should persist atachments when creating a new question', async () => {
+    const result = await sut.execute({
+      authorId: '1',
+      title: 'Nova Pergunta',
+      content: 'Conteúdo da Pergunta',
+      attachmentsIds: ['1', '2'],
+    })
+
+    expect(result.isRight()).toBeTruthy()
+    expect(inMemoryQuestionAttachmentsRepository.items).toHaveLength(2)
+    expect(inMemoryQuestionAttachmentsRepository.items).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          attachmentId: new UniqueEntityId('1')
+        }),
+        expect.objectContaining({
+          attachmentId: new UniqueEntityId('2')
+        })
+      ])
+    )
+  })
 })
