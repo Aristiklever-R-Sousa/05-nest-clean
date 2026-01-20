@@ -3,6 +3,7 @@ import { ZodValidationPipe } from "../pipes/zod-validation-pipe";
 import { BadRequestException, Controller, Get, Param, Query } from "@nestjs/common";
 import { CommentPresenter } from "../presenters/comment.presenter";
 import { FetchAnswerCommentsUseCase } from "@/domain/forum/application/use-cases/fetch-answer-comments";
+import { CommentWithAuthorPresenter } from "../presenters/comment-with-author-presenter";
 
 const queryParamSchema = z.object({
     page: z.coerce
@@ -35,8 +36,8 @@ export class FetchAnswerCommentsController {
             throw new BadRequestException()
         }
 
-        const answerComments = result.value.answerComments
+        const answerComments = result.value.comments
 
-        return { comments: answerComments.map(CommentPresenter.toHTTP) }
+        return { comments: answerComments.map(CommentWithAuthorPresenter.toHTTP) }
     }
 }
